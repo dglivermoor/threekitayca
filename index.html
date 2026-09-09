@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Три Китайца | Автоэлектрик-диагност китайских тягачей</title>
+
+    <!-- Фавиконы (без изменений) -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./apple-touch-icon.png"
+    />
+
+    <style>
+      :root {
+        --bg-color: #1a1a1a;
+        --text-color: #f5f5f5;
+        --accent-color: #ff4500;
+        --card-bg: #2d2d2d;
+        --border-color: #444;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        padding-bottom: 60px;
+      }
+
+      header {
+        background-color: var(--card-bg);
+        padding: 25px 20px;
+        text-align: center;
+        border-bottom: 3px solid var(--accent-color);
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        color: #fff;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+      }
+
+      header p {
+        color: #bbb;
+        font-size: 1.1rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        background: #222;
+        padding: 12px;
+        gap: 25px;
+      }
+
+      nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: var(--accent-color);
+      }
+
+      nav a.active {
+        color: var(--accent-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 2px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .hero-banner {
+        width: 100%;
+        margin-top: 25px;
+        margin-bottom: 30px;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        background-color: #222;
+      }
+
+      .hero-banner img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        max-height: 400px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        display: none;
+      }
+
+      .section.active {
+        display: block;
+      }
+
+      h2 {
+        border-left: 4px solid var(--accent-color);
+        padding-left: 10px;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .trucks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .truck-card {
+        background: var(--card-bg);
+        padding: 15px;
+        text-align: center;
+        border-radius: 4px;
+        font-weight: bold;
+        border: 1px solid var(--border-color);
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        background: var(--card-bg);
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      th {
+        background-color: #222;
+        color: var(--accent-color);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .btn-social {
+        flex: 1;
+        min-width: 150px;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: opacity 0.2s;
+      }
+
+      .btn-social:hover {
+        opacity: 0.9;
+      }
+
+      .youtube {
+        background-color: #ff0000;
+      }
+      .vkvideo {
+        background-color: #0077ff;
+      }
+      .rutube {
+        background-color: #000000;
+        border: 1px solid var(--border-color);
+      }
+      .phone-btn {
+        background-color: var(--accent-color);
+      }
+      .whatsapp-btn {
+        background-color: #254ed3;
+        color: #fff;
+      }
+
+      .article-preview {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+      }
+
+      .article-preview h3 {
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+
+      .article-preview .date {
+        font-size: 0.85rem;
+        color: #888;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Три Китайца</h1>
+      <p>Автоэлектрик-диагност. Специализированный ремонт китайских тягачей</p>
+    </header>
+
+    <nav>
+      <!-- Используем href="javascript:void(0)" чтобы не было перехода по якорю -->
+      <a href="javascript:void(0)" onclick="switchPage('main')" id="nav-main"
+        >Главная</a
+      >
+      <a
+        href="javascript:void(0)"
+        onclick="switchPage('articles')"
+        id="nav-articles"
+        >Статьи</a
+      >
+    </nav>
+
+    <div class="container">
+      <!-- КАРТИНКА С ТЯГАЧАМИ -->
+      <div class="hero-banner">
+        <img
+          src="trucks-banner.jpg"
+          alt="DongFeng GX, Sitrak C7H-MAX, Foton Auman"
+        />
+      </div>
+
+      <!-- ГЛАВНАЯ СТРАНИЦА -->
+      <main id="main" class="section active">
+        <h2>Специализация</h2>
+        <p style="margin-bottom: 15px;">
+          Компьютерная диагностика, поиск обрывов, ремонт блоков управления и
+          проводки на коммерческом транспорте:
+        </p>
+        <div class="trucks-grid">
+          <div class="truck-card">DongFeng GX</div>
+          <div class="truck-card">Sitrak C7H-MAX</div>
+          <div class="truck-card">Foton Auman</div>
+        </div>
+
+        <h2>Цены и услуги</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Услуга / Вид работ</th>
+                <th>Стоимость</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Компьютерная диагностика всех блоков (выездная)</td>
+                <td>от 3 000 ₽</td>
+              </tr>
+              <tr>
+                <td>Поиск и устранение обрыва кан-шины (CAN)</td>
+                <td>от 5 000 ₽</td>
+              </tr>
+              <tr>
+                <td>Ремонт жгута электропроводки двигателя</td>
+                <td>от 8 000 ₽</td>
+              </tr>
+              <tr>
+                <td>
+                  Калибровка датчиков и адаптация исполнительных механизмов
+                </td>
+                <td>от 4 000 ₽</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="margin-top: 40px;">Видеоматериалы и разборы</h2>
+        <p>
+          Делюсь опытом, показываю сложные случаи ремонта и нюансы электрики
+          китайских грузовиков на моих каналах:
+        </p>
+        <div class="social-links">
+          <a
+            href="https://www.youtube.com/@threekitayca"
+            target="_blank"
+            class="btn-social youtube"
+            >YouTube</a
+          >
+          <a
+            href="https://vkvideo.ru/@club240990593"
+            target="_blank"
+            class="btn-social vkvideo"
+            >ВК Видео</a
+          >
+          <a
+            href="https://rutube.ru/channel/80615780/"
+            target="_blank"
+            class="btn-social rutube"
+            >Rutube</a
+          >
+        </div>
+
+        <h2 style="margin-top: 40px;">Контакты и оперативная связь</h2>
+        <p style="margin-bottom: 15px;">
+          Если тягач встал на трассе или нужна консультация — звоните или пишите
+          прямо сейчас:
+        </p>
+
+        <div class="social-links">
+          <a href="tel:+79611053222" class="btn-social phone-btn"
+            >📞 Позвонить: +7 (961) 105-32-22</a
+          >
+          <a
+            href="https://max.ru/u/f9LHodD0cOJ3R4mXGojtwVZcA53Qqdfqtnh0JY9VcUtc9wKjHaN_msP6J1I"
+            target="_blank"
+            class="btn-social whatsapp-btn"
+            >💬 Написать в MAX</a
+          >
+        </div>
+
+        <p style="margin-top: 15px;">
+          Место работы: Выезд по городу Ногинск и Московской области
+        </p>
+      </main>
+
+      <!-- СТРАНИЦА СО СТАТЬЯМИ -->
+      <section id="articles" class="section">
+        <h2>Полезные статьи и разборы</h2>
+        <p style="margin-bottom: 20px;">
+          Здесь я буду публиковать текстовые разборы неисправностей, схемы и
+          советы по обслуживанию электроники тягачей.
+        </p>
+
+        <article class="article-preview">
+          <div class="date">09 сентября 2026</div>
+          <h3>
+            Почему падает CAN-шина на Sitrak C7H: типичные места перетирания
+          </h3>
+          <p>
+            В этой статье рассмотрим основные места, где жгут проводки Sitrak
+            C7H соприкасается с рамой и кабиной, приводя к ошибкам по связи
+            между блоками...
+          </p>
+          <a
+            href="#"
+            style="
+              color: var(--accent-color);
+              text-decoration: none;
+              font-weight: bold;
+              display: inline-block;
+              margin-top: 10px;
+            "
+            >Читать далее →</a
+          >
+        </article>
+
+        <article class="article-preview">
+          <div class="date">01 сентября 2026</div>
+          <h3>Особенности диагностики мочевины (SCR) на DongFeng GX</h3>
+        </article>
+      </section>
+    </div>
+
+    <!-- ========== СКРИПТ ========== -->
+    <script>
+      function switchPage(page) {
+        // 1. Скрываем все секции
+        document.querySelectorAll(".section").forEach(function (section) {
+          section.classList.remove("active");
+        });
+
+        // 2. Показываем нужную секцию
+        var target = document.getElementById(page);
+        if (target) {
+          target.classList.add("active");
+        } else {
+          console.warn('Секция с id="' + page + '" не найдена.');
+        }
+
+        // 3. Убираем класс active у всех ссылок в навигации
+        var navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach(function (link) {
+          link.classList.remove("active");
+        });
+
+        // 4. Добавляем класс active к ссылке, соответствующей текущей странице
+        //    Ищем ссылку, у которой onclick содержит название страницы
+        navLinks.forEach(function (link) {
+          var onclickAttr = link.getAttribute("onclick");
+          if (onclickAttr && onclickAttr.includes("'" + page + "'")) {
+            link.classList.add("active");
+          }
+        });
+      }
+
+      // При загрузке страницы активируем главную (на случай, если active у main уже есть,
+      // но ссылку нужно подсветить)
+      document.addEventListener("DOMContentLoaded", function () {
+        // Если по какой-то причине секция main не активна, активируем
+        var mainSection = document.getElementById("main");
+        if (mainSection && !mainSection.classList.contains("active")) {
+          mainSection.classList.add("active");
+        }
+        // Подсвечиваем ссылку "Главная"
+        switchPage("main");
+      });
+    </script>
+    <!-- ============================= -->
+  </body>
+</html>
