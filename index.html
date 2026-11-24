@@ -211,23 +211,26 @@
         color: #fff;
       }
 
-      .article-preview {
-        background: var(--card-bg);
-        padding: 20px;
-        border-radius: 4px;
-        margin-bottom: 20px;
+      /* Сетка для схем */
+      .schemas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .schemas-grid a {
+        display: block;
         border: 1px solid var(--border-color);
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--card-bg);
       }
 
-      .article-preview h3 {
-        margin-bottom: 10px;
-        color: var(--accent-color);
-      }
-
-      .article-preview .date {
-        font-size: 0.85rem;
-        color: #888;
-        margin-bottom: 10px;
+      .schemas-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
 
       footer {
@@ -253,9 +256,9 @@
       >
       <a
         href="javascript:void(0)"
-        onclick="switchPage('articles')"
-        id="nav-articles"
-        >Статьи</a
+        onclick="switchPage('schemas')"
+        id="nav-schemas"
+        >Схемы</a
       >
     </nav>
 
@@ -293,7 +296,7 @@
             <tbody>
               <tr>
                 <td>Компьютерная диагностика(выездная)</td>
-                <td> 4000 ₽</td>
+                <td>4000 ₽</td>
               </tr>
               <tr>
                 <td>Поиск и устранение обрыва электропроводки</td>
@@ -304,9 +307,7 @@
                 <td>от 10 000 ₽</td>
               </tr>
               <tr>
-                <td>Установка доп.оборудования
-          
-                </td>
+                <td>Установка доп.оборудования</td>
                 <td></td>
               </tr>
             </tbody>
@@ -362,41 +363,66 @@
         </p>
       </main>
 
-      <!-- СТРАНИЦА СО СТАТЬЯМИ -->
-      <section id="articles" class="section">
-        <h2>Полезные статьи и разборы</h2>
-        <p style="margin-bottom: 20px;">
-          Здесь я буду публиковать текстовые разборы неисправностей, схемы и
-          советы по обслуживанию электроники тягачей.
+      <!-- СТРАНИЦА СО СХЕМАМИ -->
+      <section id="schemas" class="section">
+        <h2>Схемы</h2>
+        <p style="margin-bottom: 10px;">
+          Электрические схемы и распиновки по китайским тягачам DongFeng GX
         </p>
 
-        <article class="article-preview">
-          <div class="date">09 сентября 2026</div>
-          <h3>
-            Почему падает CAN-шина на Sitrak C7H: типичные места перетирания
-          </h3>
-          <p>
-            В этой статье рассмотрим основные места, где жгут проводки Sitrak
-            C7H соприкасается с рамой и кабиной, приводя к ошибкам по связи
-            между блоками...
-          </p>
-          <a
-            href="#"
-            style="
-              color: var(--accent-color);
-              text-decoration: none;
-              font-weight: bold;
-              display: inline-block;
-              margin-top: 10px;
-            "
-            >Читать далее →</a
-          >
-        </article>
+        <div class="schemas-grid">
+          <a href="schema-1.jpg" target="_blank">
+            <img src="schema-1.jpg" alt="Схема электропитания" />
+          </a>
 
-        <article class="article-preview">
-          <div class="date">01 сентября 2026</div>
-          <h3>Особенности диагностики мочевины (SCR) на DongFeng GX</h3>
-        </article>
+          <a href="schema-2.jpg" target="_blank">
+            <img src="schema-2.jpg" alt="Схема пуска и распределения энергии" />
+          </a>
+          <a href="schema-3.jpg" target="_blank">
+            <img src="schema-3.jpg" alt="Vecu/EECU" />
+          </a>
+          <a href="schema-4.jpg" target="_blank">
+            <img src="schema-4.jpg" alt="Схема BCM" />
+          </a>
+          <a href="schema-5.jpg" target="_blank">
+            <img src="schema-5.jpg" alt="Схема CIOM" />
+          </a>
+          <a href="schema-6.jpg" target="_blank">
+            <img src="schema-6.jpg" alt="Схема Кондиционер/отопитель" />
+          </a>
+          <a href="schema-7.jpg" target="_blank">
+            <img src="schema-7.jpg" alt="Схема КПП ретардер ZF" />
+          </a>
+          <a href="schema-8.jpg" target="_blank">
+            <img src="schema-8.jpg" alt="Схема EBS/ELC" />
+          </a>
+          <a href="schema-9.jpg" target="_blank">
+            <img src="schema-9.jpg" alt="Приборная панель" />
+          </a>
+          <a href="schema-10.jpg" target="_blank">
+            <img src="schema-10.jpg" alt="Сетевая топология CAN 500k" />
+          </a>
+          <a href="schema-11.jpg" target="_blank">
+            <img src="schema-11.jpg" alt="CAN 250k" />
+          </a>
+          <a href="schema-12.jpg" target="_blank">
+            <img src="schema-12.jpg" alt="Самосвал" />
+          </a>
+          <a href="schema-13.jpg" target="_blank">
+            <img src="schema-13.jpg" alt="Схема самосвал" />
+          </a>
+          <a href="schema-14.jpg" target="_blank">
+            <img src="schema-14.jpg" alt="Схема самосвал 2 " />
+          </a>
+          <a href="schema-15.jpg" target="_blank">
+            <img src="schema-15.jpg" alt="Схема самосвал 3" />
+          </a>
+          <!-- Добавляйте новые схемы по образцу выше:
+          <a href="имя-файла.jpg" target="_blank">
+            <img src="имя-файла.jpg" alt="Описание" />
+          </a>
+          -->
+        </div>
       </section>
     </div>
 
@@ -423,7 +449,6 @@
         });
 
         // 4. Добавляем класс active к ссылке, соответствующей текущей странице
-        //    Ищем ссылку, у которой onclick содержит название страницы
         navLinks.forEach(function (link) {
           var onclickAttr = link.getAttribute("onclick");
           if (onclickAttr && onclickAttr.includes("'" + page + "'")) {
@@ -432,18 +457,16 @@
         });
       }
 
-      // При загрузке страницы активируем главную (на случай, если active у main уже есть,
-      // но ссылку нужно подсветить)
+      // При загрузке страницы активируем главную
       document.addEventListener("DOMContentLoaded", function () {
-        // Если по какой-то причине секция main не активна, активируем
         var mainSection = document.getElementById("main");
         if (mainSection && !mainSection.classList.contains("active")) {
           mainSection.classList.add("active");
         }
-        // Подсвечиваем ссылку "Главная"
         switchPage("main");
       });
     </script>
     <!-- ============================= -->
   </body>
 </html>
+
